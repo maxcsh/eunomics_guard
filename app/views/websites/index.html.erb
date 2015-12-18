@@ -1,3 +1,4 @@
+<%= link_to "新增" , new_website_path %>
 <table>
   <thead>
     <tr>
@@ -6,6 +7,7 @@
     <th> 網址 </th>
     <th> 狀態 </th>
     <th> 上次更新 </th>
+    <th> 選項 </th>
     </tr>
   </thead>
   <tbody>
@@ -18,10 +20,10 @@
         <td> <%= web.updated_at %> </td>
         <%#= web.message %>
         <%#= web.last_str %>
+        <td> <%= link_to "修改" , edit_website_path( web ) %> / <%= link_to "刪除" , website_path( web ) , :method => :delete , :data => { :confirm => "really want to delete this website?" } %> </td>
       </tr>
     <% end %>
   </tbody>
-
 </table>
 
-<%= link_to "更新", scrap_path , :method => :post %>
+<%= button_to "更新", scrap_websites_path , :method => :post , :data => { :disable_with => "Updating..." } %>

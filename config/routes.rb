@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   root "websites#index"
-  post "scrap" => "websites#scrap"
+  resources :websites do
+    collection do
+      post "scrap"
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
