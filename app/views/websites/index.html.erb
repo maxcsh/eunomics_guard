@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <tr>
+    <th> 網站名稱 </th>
+    <th> 網站描述 </th>
+    <th> 網址 </th>
+    <th> 狀態 </th>
+    <th> 上次更新 </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @websites.each do |web| %>
+      <tr>
+        <td> <%= link_to web.name , web.address , :target => :_blank %> </td>
+        <td> <%= web.description %> </td>
+        <td> <%= link_to web.address , web.address , :target => :_blank %> </td>
+        <td> <%= web.status %> </td>
+        <td> <%= web.updated_at %> </td>
+        <%#= web.message %>
+        <%#= web.last_str %>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+<%= link_to "更新", scrap_path , :method => :post %>
